@@ -76,7 +76,7 @@ enum class ErrCode : uint8_t {
   MalformedVersion = 0x24,      // Unsupported version
   MalformedSection = 0x25,      // Malformed section ID
   SectionSizeMismatch = 0x26,   // Section size mismatched
-  NameSizeOutOfBounds = 0x27,   // Name size out of bounds
+  ENDCodeExpected = 0x27,       // END OpCode expected
   JunkSection = 0x28,           // Junk sections
   IncompatibleFuncCode = 0x29,  // Incompatible function and code section
   IncompatibleDataCount = 0x2A, // Incompatible data and datacount section
@@ -164,7 +164,7 @@ static inline constexpr const auto ErrCodeStr = []() constexpr {
       {ErrCode::MalformedVersion, "unknown binary version"sv},
       {ErrCode::MalformedSection, "malformed section id"sv},
       {ErrCode::SectionSizeMismatch, "section size mismatch"sv},
-      {ErrCode::NameSizeOutOfBounds, "length out of bounds"sv},
+      {ErrCode::ENDCodeExpected, "END opcode expected"sv},
       {ErrCode::JunkSection, "unexpected content after last section"sv},
       {ErrCode::IncompatibleFuncCode,
        "function and code section have inconsistent lengths"sv},
@@ -259,7 +259,7 @@ enum WasmEdge_ErrCode {
   WasmEdge_ErrCode_InvalidVersion = 0x24,
   WasmEdge_ErrCode_InvalidSection = 0x25,
   WasmEdge_ErrCode_SectionSizeMismatch = 0x26,
-  WasmEdge_ErrCode_NameSizeOutOfBounds = 0x27,
+  WasmEdge_ErrCode_ENDCodeExpected = 0x27,
   WasmEdge_ErrCode_JunkSection = 0x28,
   WasmEdge_ErrCode_IncompatibleFuncCode = 0x29,
   WasmEdge_ErrCode_IncompatibleDataCount = 0x2A,
