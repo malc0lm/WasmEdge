@@ -15,7 +15,8 @@ namespace WasmEdge {
 namespace Loader {
 
 // Load binary to construct Module node. See "include/loader/loader.h".
-Expect<std::unique_ptr<AST::Module>> Loader::loadModule() {
+Expect<std::unique_ptr<AST::Module>>
+Loader::loadModule(FileMgr::FileHeader HeaderType [[maybe_unused]]) {
   auto Mod = std::make_unique<AST::Module>();
   // Read Magic and Version sequences.
   if (auto Res = FMgr.readBytes(4)) {

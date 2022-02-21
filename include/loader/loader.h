@@ -120,7 +120,8 @@ private:
 
   /// \name Load AST Module functions
   /// @{
-  Expect<std::unique_ptr<AST::Module>> loadModule();
+  Expect<std::unique_ptr<AST::Module>>
+  loadModule(FileMgr::FileHeader HeaderType = FileMgr::FileHeader::Wasm);
   Expect<void> loadCompiled(AST::Module &Mod);
   /// @}
 

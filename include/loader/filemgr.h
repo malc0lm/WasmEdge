@@ -93,6 +93,9 @@ public:
   /// Get remain size.
   uint64_t getRemainSize() const noexcept { return Size - Pos; }
 
+  /// Jump the content with size (size + content).
+  Expect<void> jumpContent();
+
   /// Reset status
   void reset() {
     Status = ErrCode::UnexpectedEnd;
